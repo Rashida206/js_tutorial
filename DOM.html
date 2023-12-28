@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Operations Example</title>
+  <style>
+    /* Optional: Styling for demonstration */
+    .highlight {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- HTML elements for demonstration purposes -->
+  <div id="elementId">Element by ID</div>
+  <div class="className">Element by Class</div>
+  <span>Element by Tag</span>
+  <div id="target">Target Element</div>
+  <button id="clickButton">Click Me</button>
+  <form id="sampleForm">
+    <input type="text" name="inputName" placeholder="Enter text">
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    // JavaScript code for DOM operations
+    let elementById = document.getElementById('elementId');
+    let elementsByClass = document.getElementsByClassName('className');
+    let elementsByTag = document.getElementsByTagName('span');
+    let element = document.querySelector('#target');
+    let elements = document.querySelectorAll('div');
+
+    elementById.innerHTML = 'New content';
+    elementById.setAttribute('class', 'highlight');
+    elementById.style.color = 'blue';
+
+    element.addEventListener('click', function(event) {
+      event.target.innerHTML = 'Button clicked!';
+    });
+
+    let newElement = document.createElement('p');
+    newElement.textContent = 'Newly created element';
+    document.body.appendChild(newElement);
+
+    let parent = element.parentElement;
+    let firstChild = parent.firstChild;
+    let nextSibling = element.nextElementSibling;
+
+    parent.removeChild(firstChild);
+
+    let form = document.getElementById('sampleForm');
+    let input = form.elements['inputName'];
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      console.log('Form submitted');
+    });
+  </script>
+</body>
+</html>
