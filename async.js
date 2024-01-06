@@ -4,6 +4,7 @@
 // await is like telling the helper to wait for a task to finish before moving to the next one.
 // For example:
 
+
 async function makeDinner() {
   // The helper starts cooking and waits until it's done
   const veggies = await chopVegetables();
